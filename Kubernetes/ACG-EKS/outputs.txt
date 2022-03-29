@@ -1,0 +1,80 @@
+Apply complete! Resources: 53 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+cluster_endpoint = "https://1D6CC0AB9B0AB782B4FF641729798379.gr7.us-east-1.eks.amazonaws.com"
+cluster_id = "education-eks-4WF4L8qK"
+cluster_name = "education-eks-4WF4L8qK"
+cluster_security_group_id = "sg-02678376a75b9a3a0"
+config_map_aws_auth = [
+  {
+    "binary_data" = tomap(null) /* of string */
+    "data" = tomap({
+      "mapAccounts" = <<-EOT
+      []
+
+      EOT
+      "mapRoles" = <<-EOT
+      - "groups":
+        - "system:bootstrappers"
+        - "system:nodes"
+        "rolearn": "arn:aws:iam::319876539559:role/education-eks-4WF4L8qK2022031500504129530000000e"
+        "username": "system:node:{{EC2PrivateDNSName}}"
+
+      EOT
+      "mapUsers" = <<-EOT
+      []
+
+      EOT
+    })
+    "id" = "kube-system/aws-auth"
+    "metadata" = tolist([
+      {
+        "annotations" = tomap(null) /* of string */
+        "generate_name" = ""
+        "generation" = 0
+        "labels" = tomap({
+          "app.kubernetes.io/managed-by" = "Terraform"
+          "terraform.io/module" = "terraform-aws-modules.eks.aws"
+        })
+        "name" = "aws-auth"
+        "namespace" = "kube-system"
+        "resource_version" = "807"
+        "uid" = "62852602-0fab-4bab-a433-69d25f7ceaa8"
+      },
+    ])
+  },
+]
+kubectl_config = <<EOT
+apiVersion: v1
+preferences: {}
+kind: Config
+
+clusters:
+- cluster:
+    server: https://1D6CC0AB9B0AB782B4FF641729798379.gr7.us-east-1.eks.amazonaws.com
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeU1ETXhOVEF3TkRjeE4xb1hEVE15TURNeE1qQXdORGN4TjFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBUFI2CjhuN0c0N1JwMFUwOHNZaktMZ3lycm9LaFlrOCtHdUVmRE83cGw1NVZRRStMVXNOTDZ6akZDSzMyNys2bjJzRDQKWHd1akVxMC9sOEdBNDZuaWR6N1AyNWIycnVSREZHTmRYUjRhQmF6QWd3Q2pML1U5SzQxVW5jeWcxQ3ZiUEJhVAo3S3luam5ZOHNOaTN0clZoVGZlUENvaG9XY1dTTm02RkcvOU80WGVyeHBsYkFJVkpKQ2VVMVpJN0lvQnpVeVFkCnZPNGR3cUhadTFuVEh2RmV1TXdQckxsM2tXVHhhaWNabm1hektIdEtpZmY3d2RzMnlJUXA3aXVqRmdPMldWaVEKbis5UEhtNVF2T1p4cW1XQVN2Z3NuSDFRU3l0YzJyL1BXUVNVQXlmT2tKREhXZXJ4eVhRNHpSMk9pTFBIZ01uaQpXL2Z0RTM2RjI5bWZGMGxFbEcwQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZMUDlUc002ZWF6ODk0OFlLRTVlSStpZzN3ZHVNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFDNnVhM0xhaThoaHVGd0NyREEvcWFSV201dkhWVkY5eFFRNmlFdnJ5a2FZTXUyODRzZgpJOWdwVklPeGlkZ1VtK1FleGtWSG1Wc0NzZUYzbFFwaWsreThvMURPVTB4cFV6THp1TTZxcjNNNkJtOGswbUlJCndBdHhZampzNUhqRnNQMm1KUmJVNEY1ZUhLc2loV3lSTUtaQlJUa1RFQnhENFJGN0VMamRMdk5SM0VPYUF4WDYKSUppVXNzcS9xclNQL0c3dFB4VkROVnAzV29NN3NteGkyUjN0cXRxZVBzTDZTM09zVWFoeVhOcldMcWxqcTZ3LwpzK25QSlBXOE8vMDYweC9iczVqK2xtQ1ozL3JVZE1ZUkRyRDkrekxWMHZZTllFbnlneWJMbnJlblZjRHNNYXR3CjU4Rng5c3J3eExkbEJHQ1JhSWZhbmRyMFg5Y3lZZytrZHpzNAotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  name: eks_education-eks-4WF4L8qK
+
+contexts:
+- context:
+    cluster: eks_education-eks-4WF4L8qK
+    user: eks_education-eks-4WF4L8qK
+  name: eks_education-eks-4WF4L8qK
+
+current-context: eks_education-eks-4WF4L8qK
+
+users:
+- name: eks_education-eks-4WF4L8qK
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      command: aws-iam-authenticator
+      args:
+        - "token"
+        - "-i"
+        - "education-eks-4WF4L8qK"
+
+EOT
+region = "us-east-1"
+cloud_user@180fde7f1f1c:~/Documents/Kubernetes/ACG-EKS$
